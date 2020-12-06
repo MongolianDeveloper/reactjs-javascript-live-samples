@@ -7,10 +7,7 @@ export default function Part3() {
   const [value, setValue] = useState("initial");
 
   useEffect(() => {
-    const returnInitialValue = () => {
-      return "test value";
-    };
-    returnInitialValue();
+    console.log(value);
   }, [value]);
 
   return <div onClick={() => setValue("new value")}>part3</div>;
