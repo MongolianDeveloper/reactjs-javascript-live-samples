@@ -1,5 +1,5 @@
 import "./App.css";
-import Part from "./parts/part6_memoize";
+import Part from "./parts/part5_byhook";
 
 function App() {
   return (

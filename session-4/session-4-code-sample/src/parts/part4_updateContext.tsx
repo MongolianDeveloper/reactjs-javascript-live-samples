@@ -25,6 +25,7 @@ export const ThemeContext = createContext({
   toggleTheme: () => {},
 });
 
+// render prop method
 function ThemeTogglerButton() {
   return (
     <ThemeContext.Consumer>

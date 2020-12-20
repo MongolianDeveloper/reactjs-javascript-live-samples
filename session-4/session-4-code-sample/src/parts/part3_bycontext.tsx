@@ -20,17 +20,17 @@ const theme: ThemeType = {
 const ThemeContext = createContext<typeof theme>(theme);
 
 class ThemedButton extends React.Component<{}, {}> {
-  // static contextType = ThemeContext;
+  static contextType = ThemeContext;
 
   render() {
-    let context = this.context;
+    // let context = this.context;
 
     return (
       <button
         style={{
           cursor: "pointer",
           padding: "5px",
-          color: context.color,
+          color: this.context.color,
         }}
       >
         click me!
@@ -39,7 +39,7 @@ class ThemedButton extends React.Component<{}, {}> {
   }
 }
 
-ThemedButton.contextType = ThemeContext;
+// ThemedButton.contextType = ThemeContext;
 
 function Toolbar() {
   return (

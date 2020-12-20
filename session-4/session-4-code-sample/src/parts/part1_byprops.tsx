@@ -18,7 +18,13 @@ class ThemedButton extends React.Component<ThemeType, {}> {
   render() {
     return (
       <button
-        style={{ cursor: "pointer", padding: "5px", color: this.props.color }}
+        style={{
+          cursor: "pointer",
+          padding: "5px",
+          color: this.props.color,
+          fontSize: this.props.fontSize,
+          fontWeight: this.props.fontWeight,
+        }}
       >
         click me!
       </button>

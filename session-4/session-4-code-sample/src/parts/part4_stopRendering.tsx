@@ -68,7 +68,14 @@ export default class Part4 extends React.Component<{}, ThemesType> {
   render() {
     return (
       <div>
-        <ThemeContext.Provider value={this.state}>
+        <ThemeContext.Provider
+          value={{
+            theme: {
+              foreground: "#000000",
+              background: "#eeeeee",
+            },
+          }}
+        >
           <ThemeTogglerButton />
         </ThemeContext.Provider>
         <div onClick={this.clickHandler}>click here</div>

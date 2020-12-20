@@ -12,6 +12,7 @@ import { unstable_trace as trace } from "scheduler/tracing";
 //    - Контекстыг салгах **(Split contexts that don't change together)**
 //    - Компонентыг хувааж memo ашиглах **(Split component in two, put memo in between)**
 //    - Компонент дотор useMemo ашиглах **(One component with useMemo inside)**
+// https://github.com/facebook/react/issues/15156
 
 function handleRender(id: string, interactions: any) {
   console.log(
