@@ -1,8 +1,12 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 // 1. Хэзээ useReducer-г хэрэглэх вэ **(When to use useReducer?)**
+//     - Эхний утга олгох **(Specifying the initial state)**
+//     - Функц дуудаж эхний утга олгох **(Lazy initialization)**
 
-const initialState = { count: 0 };
+const initialState = {
+  count: 0,
+};
 
 type Action = { type: "increment" } | { type: "decrement" } | { type: "reset" };
 type State = {
@@ -23,11 +27,21 @@ function reducer(state: State, action: Action) {
 }
 
 export default function Part1() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [count, setCount] = useState(initialCount);
+  const [state, dispatch] = useReducer(reducer, initialState, () => {
+    return {
+      count: 1,
+    };
+  });
+
+  const handleReset = () => {
+    dispatch({ type: "reset" });
+  };
+
   return (
     <>
       Count: {state.count}
-      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+      <button onClick={handleReset}>Reset</button>
       <button onClick={() => dispatch({ type: "decrement" })}>-</button>
       <button onClick={() => dispatch({ type: "increment" })}>+</button>
     </>

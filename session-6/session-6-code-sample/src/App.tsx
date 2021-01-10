@@ -1,5 +1,6 @@
+import React from "react";
 import "./App.css";
-import Part from "./parts/part2_1";
+import Part from "./parts/part3";
 
 function App() {
   return (
