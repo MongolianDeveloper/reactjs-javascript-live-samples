@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FriendType } from "./index";
 
 export type OnlineFriendsProps = {
@@ -7,7 +7,6 @@ export type OnlineFriendsProps = {
     allFriends: FriendType[]
   ) => JSX.Element;
 };
-
 export const OnlineFriends: React.FC<OnlineFriendsProps> = ({ children }) => {
   const [onlineFriends, setOnlineFriends] = useState<FriendType[]>([]);
   const [allFriends] = useState<FriendType[]>([
@@ -36,7 +35,7 @@ export const OnlineFriends: React.FC<OnlineFriendsProps> = ({ children }) => {
     return () => {
       setOnlineFriends([]);
     };
-  });
+  }, []);
 
   return children(onlineFriends, allFriends);
 };

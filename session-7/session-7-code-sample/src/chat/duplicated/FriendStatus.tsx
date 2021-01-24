@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FriendType } from "./index";
 
 export type FriendStatusProps = {
@@ -9,6 +9,7 @@ export const FriendStatus: React.FC<FriendStatusProps> = ({ allFriends }) => {
   const [onlineFriends, setOnlineFriends] = useState<FriendType[]>([]);
 
   useEffect(() => {
+    // component logic
     function handleStatusChange() {
       const filteredFriends = allFriends.filter(
         (friend) => friend.id % 2 === 0
@@ -23,8 +24,8 @@ export const FriendStatus: React.FC<FriendStatusProps> = ({ allFriends }) => {
 
   return (
     <>
-      <h3>All friends</h3>
-      <ul style={{ textAlign: "left" }}>
+      <h2>Friend Status</h2>
+      <div>
         {allFriends.map((friend) => {
           return (
             <li key={friend.id}>
@@ -43,7 +44,7 @@ export const FriendStatus: React.FC<FriendStatusProps> = ({ allFriends }) => {
             </li>
           );
         })}
-      </ul>
+      </div>
     </>
   );
 };

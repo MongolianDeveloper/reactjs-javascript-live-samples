@@ -1,29 +1,32 @@
 import React from "react";
-import OnlineFriends from "./OnlineFriends";
 import FriendStatus from "./FriendStatus";
 import OnlineFriendsList from "./OnlineFriendsList";
+import OnlineFriends from "./OnlineFriends";
 
 export type FriendType = {
   id: number;
   name: string;
 };
 
-export const Chat: React.FC = () => {
+export type ChatProps = {};
+export const Chat: React.FC<ChatProps> = () => {
   return (
     <OnlineFriends>
-      {(onlineFriends, allFriends) => (
-        <div style={{ display: "flex" }}>
-          <div style={{ flexGrow: 1 }}>
-            <FriendStatus
-              onlineFriends={onlineFriends}
-              allFriends={allFriends}
-            />
+      {(onlineFriends, allFriends) => {
+        return (
+          <div style={{ display: "flex" }}>
+            <div style={{ flexGrow: 1 }}>
+              <FriendStatus
+                allFriends={allFriends}
+                onlineFriends={onlineFriends}
+              />
+            </div>
+            <div style={{ flexGrow: 1 }}>
+              <OnlineFriendsList onlineFriends={onlineFriends} />
+            </div>
           </div>
-          <div style={{ flexGrow: 1 }}>
-            <OnlineFriendsList friends={onlineFriends} />
-          </div>
-        </div>
-      )}
+        );
+      }}
     </OnlineFriends>
   );
 };

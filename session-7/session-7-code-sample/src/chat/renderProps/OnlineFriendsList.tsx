@@ -1,18 +1,23 @@
+import React from "react";
 import { FriendType } from "./index";
 
 export type OnlineFriendsListProps = {
-  friends: FriendType[];
+  onlineFriends: FriendType[];
 };
 
-export const OnlineFriendsList = (props: OnlineFriendsListProps) => {
+export const OnlineFriendsList: React.FC<OnlineFriendsListProps> = ({
+  onlineFriends,
+}) => {
   return (
     <>
-      <h3>Online friends list</h3>
-      <ul style={{ textAlign: "left" }}>
-        {props.friends.map((friend) => {
-          return <li key={friend.id}>{friend.name}</li>;
-        })}
-      </ul>
+      <h2>Online Friends List</h2>
+      <div>
+        <ul style={{ textAlign: "left" }}>
+          {onlineFriends.map((friend) => {
+            return <li key={friend.id}>{friend.name}</li>;
+          })}
+        </ul>
+      </div>
     </>
   );
 };

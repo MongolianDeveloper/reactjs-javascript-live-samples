@@ -1,13 +1,20 @@
-import withOnline, { OnlineFriendsProps } from "./withOnline";
+import React from "react";
+import { FriendType } from "./index";
+import withOnline from "./withOnline";
 
-export const FriendStatus: React.FC<OnlineFriendsProps> = ({
-  onlineFriends,
+export type FriendStatusProps = {
+  allFriends: FriendType[];
+  onlineFriends: FriendType[];
+};
+
+export const FriendStatus: React.FC<FriendStatusProps> = ({
   allFriends,
+  onlineFriends,
 }) => {
   return (
     <>
-      <h3>All friends</h3>
-      <ul style={{ textAlign: "left" }}>
+      <h2>Friend Status</h2>
+      <div>
         {allFriends.map((friend) => {
           return (
             <li key={friend.id}>
@@ -26,7 +33,7 @@ export const FriendStatus: React.FC<OnlineFriendsProps> = ({
             </li>
           );
         })}
-      </ul>
+      </div>
     </>
   );
 };

@@ -1,18 +1,19 @@
+import React from "react";
 import { FriendType } from "./index";
 
 export type FriendStatusProps = {
-  onlineFriends: FriendType[];
   allFriends: FriendType[];
+  onlineFriends: FriendType[];
 };
 
 export const FriendStatus: React.FC<FriendStatusProps> = ({
-  onlineFriends,
   allFriends,
+  onlineFriends,
 }) => {
   return (
     <>
-      <h3>All friends</h3>
-      <ul style={{ textAlign: "left" }}>
+      <h2>Friend Status</h2>
+      <div>
         {allFriends.map((friend) => {
           return (
             <li key={friend.id}>
@@ -31,7 +32,7 @@ export const FriendStatus: React.FC<FriendStatusProps> = ({
             </li>
           );
         })}
-      </ul>
+      </div>
     </>
   );
 };

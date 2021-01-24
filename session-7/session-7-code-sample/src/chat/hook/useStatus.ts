@@ -33,7 +33,7 @@ export const useStatus = () => {
     return () => {
       setOnlineFriends([]);
     };
-  });
+  }, []);
 
   return { onlineFriends, allFriends };
 };

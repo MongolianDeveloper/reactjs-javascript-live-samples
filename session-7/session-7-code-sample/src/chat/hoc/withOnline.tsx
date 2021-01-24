@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export type FriendType = {
   id: number;
@@ -9,6 +9,8 @@ export type OnlineFriendsProps = {
   onlineFriends: FriendType[];
   allFriends: FriendType[];
 };
+
+export type WithOnlineProps = {};
 
 export function WithOnline<P>(
   WrappedComponent: React.ComponentType<P & OnlineFriendsProps>
@@ -41,7 +43,7 @@ export function WithOnline<P>(
       return () => {
         setOnlineFriends([]);
       };
-    });
+    }, []);
 
     return (
       <WrappedComponent

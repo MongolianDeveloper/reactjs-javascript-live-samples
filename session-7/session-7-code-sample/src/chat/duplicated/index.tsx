@@ -7,7 +7,8 @@ export type FriendType = {
   name: string;
 };
 
-export const Chat: React.FC = () => {
+export type ChatProps = {};
+export const Chat: React.FC<ChatProps> = () => {
   const [allFriends] = useState<FriendType[]>([
     {
       id: 1,
